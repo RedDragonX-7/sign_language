@@ -156,6 +156,6 @@ def extract_keypoints(results):
 
 # define paths and parameters for data detection
 DATA_PATH = os.path.join('MP_Data')
-actions = ['apple', 'ball', 'cat']
+actions = ['A', 'B', 'C']
 no_sequences = 30
 sequence_length = 30
