@@ -103,7 +103,6 @@ class Hands:
                 self.multi_handedness = []
         
         return Results(hand_landmarks_list)
-    
     def __enter__(self):
         return self
     
@@ -119,14 +118,14 @@ class HandsNamespace:
 
 mp_hands = HandsNamespace()
 
-#perform mediapipe detection for image (compatibility wrapper)
+# Perform mediapipe detection for image (compatibility wrapper)
 def mediapipe_detection(image, model):
     """Wrapper function to maintain compatibility with old API"""
     # model is a Hands instance, use its process method
     results = model.process(image)
     return image, results
 
-#draw landmarks and hand connections using OpenCV
+# Draw landmarks and hand connections using OpenCV
 def draw_landmarks(image, results):
     if results.multi_hand_landmarks:
         h, w, _ = image.shape
