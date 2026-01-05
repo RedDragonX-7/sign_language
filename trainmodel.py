@@ -8,11 +8,10 @@ from keras.callbacks import TensorBoard
 import numpy as np
 import os
 
-#map actions to numerical values
+# Map actions to numerical values
 label_map = {label:num for num, label in enumerate(actions)}
 
-# load and pad sequences
-
+# Load and pad sequences
 sequences, labels = [], []
 for action in actions:
     for sequence_num in range(no_sequences):
@@ -51,7 +50,6 @@ model = Sequential([
 
 # compile the model
 model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-
 
 # train the model
 model.fit(x_train, y_train, epochs=200, callbacks=[tb_callback], validation_data=(x_test, y_test))
