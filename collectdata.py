@@ -6,27 +6,26 @@ cap = cv2.VideoCapture(0)
 
 #directory to staring the images
 directory = 'Image/'
-
 while True:
     _, frame = cap.read()
-    #dictionary to count nymber of images in each subdir
+    # Dictionary to count nymber of images in each folder
     count={
         'a': len(os.listdir(directory +'A')),
         'b': len(os.listdir(directory +'B')),
         'c': len(os.listdir(directory +'C')),
     }
-    #get dimentions of each captured image
+    # Get dimentions of each captured image
     row = frame.shape[1]
     col = frame.shape[0]
 
-    #draw a white rectangel to show capture area
+    # draw a white rectangel to show capture area
     cv2.rectangle(frame, (0,40), (300, 400), (255,255,255), 2)
 
     #display the capture region separately 
     cv2.imshow('data',frame)
     cv2.imshow('ROI', frame[40:400, 0:300])
 
-    #crop
+    # crop
     frame = frame[40:400, 0:300]
 
     interrupt = cv2.waitKey(10)
@@ -37,7 +36,6 @@ while True:
     if interrupt & 0xFF == ord('c'):
         cv2.imwrite(directory + 'C/' + str(count['c']) + '.png', frame)
 
-
-#release the video ccapture device
+# Release the video ccapture device
 cap.release()
 cv2.destroyAllWindows()
