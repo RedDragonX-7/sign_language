@@ -1,12 +1,12 @@
 from function import *
 import cv2
 
-# creat directories for each action and store frames
+# Creat directories for each action and store frames
 for action in actions:
     for sequence in range(no_sequences):
         os.makedirs(os.path.join(DATA_PATH, action, str(sequence)), exist_ok=True)
 
-# initialize mediapipe for hand detection
+# Initialize mediapipe for hand detection
 with mp_hands.Hands(
     model_complexity=0,
     min_detection_confidence=0.3,
