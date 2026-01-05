@@ -91,7 +91,6 @@ with mp_hands.Hands(
                       (track_window_x + track_window_width,
                        track_window_y + track_window_height),
                       (245, 117, 16), 2)
-
         # Mediapipe detection
         image, results = mediapipe_detection(cropframe, hands)
 
@@ -99,7 +98,6 @@ with mp_hands.Hands(
         keypoints = extract_keypoints(results)
         sequence.append(keypoints)
         sequence = sequence[-30:]  # Keep only last 30 frames
-
         try:
             # Predict only when we have 30 frames
             if len(sequence) == 30:
@@ -107,7 +105,6 @@ with mp_hands.Hands(
                     np.expand_dims(sequence, axis=0),
                     verbose=0
                 )[0]
-
                 predictions.append(np.argmax(res))
 
                 # Check prediction stability
@@ -168,6 +165,5 @@ with mp_hands.Hands(
         # Press Q to exit
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
-
     cap.release()
     cv2.destroyAllWindows()
