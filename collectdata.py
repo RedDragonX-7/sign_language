@@ -10,9 +10,9 @@ while True:
     _, frame = cap.read()
     # Dictionary to count nymber of images in each folder
     count={
-        'a': len(os.listdir(directory +'A')),
-        'b': len(os.listdir(directory +'B')),
-        'c': len(os.listdir(directory +'C')),
+        'a': len(os.listdir(directory +'call me')),
+        'b': len(os.listdir(directory +'good job')),
+        'c': len(os.listdir(directory +'fuck you')),
     }
     # Get dimentions of each captured image
     row = frame.shape[1]
@@ -30,12 +30,11 @@ while True:
 
     interrupt = cv2.waitKey(10)
     if interrupt & 0xFF == ord('a'):
-        cv2.imwrite(directory + 'A/' + str(count['a']) + '.png', frame)
+        cv2.imwrite(directory + 'call me/' + str(count['a']) + '.png', frame)
     if interrupt & 0xFF == ord('b'):
-        cv2.imwrite(directory + 'B/' + str(count['b']) + '.png', frame)
+        cv2.imwrite(directory + 'good job/' + str(count['b']) + '.png', frame)
     if interrupt & 0xFF == ord('c'):
-        cv2.imwrite(directory + 'C/' + str(count['c']) + '.png', frame)
-
+        cv2.imwrite(directory + 'fuck you/' + str(count['c']) + '.png', frame)
 # Release the video ccapture device
 cap.release()
 cv2.destroyAllWindows()
