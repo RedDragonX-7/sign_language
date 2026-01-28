@@ -35,6 +35,6 @@ while True:
         cv2.imwrite(directory + 'good job/' + str(count['b']) + '.png', frame)
     if interrupt & 0xFF == ord('c'):
         cv2.imwrite(directory + 'fuck you/' + str(count['c']) + '.png', frame)
-# Release the video ccapture device
+# Release the video capture device
 cap.release()
 cv2.destroyAllWindows()
